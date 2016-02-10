@@ -20,7 +20,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public int add(@RequestBody Product product) {
-		return 0;
+	public void add(@RequestBody Product product) {
+		 productService.save(product);
 	}
 }
