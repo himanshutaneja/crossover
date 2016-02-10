@@ -2,6 +2,8 @@ package com.dev.crossover.customer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +13,7 @@ public class Customer {
 
 	@Id
 	@Column(name = "C_CODE")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int code;
 	@Column(name = "C_NAME")
 	private String name;

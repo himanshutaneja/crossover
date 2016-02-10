@@ -21,6 +21,7 @@ public class CustomerController {
 
 	@RequestMapping(value = "/customer", method = RequestMethod.POST)
 	public void add(@RequestBody Customer customer) {
+		customerService.save(customer);
 	}
 
 }

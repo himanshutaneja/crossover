@@ -6,4 +6,6 @@ public interface CustomerService {
 
 	List<Customer> getAll();
 
+	void save(Customer customer);
+
 }
