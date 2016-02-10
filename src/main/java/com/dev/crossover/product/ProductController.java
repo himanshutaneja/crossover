@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductController {
 
+	private ProductService productService;
+
 	@RequestMapping(value = "/products", method = RequestMethod.GET)
 	public List<Product> getAll() {
-		return null;
+		return productService.getAll();
 	}
 
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
