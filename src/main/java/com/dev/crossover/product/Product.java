@@ -6,17 +6,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "PRODUCTS")
 public class Product {
 
 	@Id
-	@Column(name = "CODE")
+	@Column(name = "P_CODE")
 	private int code;
-	@Column(name = "DESC")
+	@Column(name = "P_DESCRIPTION")
 	private String description;
-	@Column(name = "PRICE")
+	@Column(name = "P_PRICE")
 	private int price;
-	@Column(name = "QTY")
+	@Column(name = "P_QUANTITY")
 	private int quantity;
 
 	public int getCode() {
