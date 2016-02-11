@@ -17,4 +17,17 @@ public class SaleOrders {
 	private int orderNo;
 	@Column(name = "CUST_CODE")
 	private int custCode;
+	
+	public int getOrderNo() {
+		return orderNo;
+	}
+	public void setOrderNo(int orderNo) {
+		this.orderNo = orderNo;
+	}
+	public int getCustCode() {
+		return custCode;
+	}
+	public void setCustCode(int custCode) {
+		this.custCode = custCode;
+	}
 }
