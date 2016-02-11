@@ -4,4 +4,4 @@ CREATE TABLE `products` (
   `P_PRICE` int(11) DEFAULT NULL,
   `P_QUANTITY` int(11) DEFAULT NULL,
   PRIMARY KEY (`P_CODE`)
-)
+);
