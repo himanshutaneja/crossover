@@ -1,10 +1,14 @@
 package com.dev.crossover.saleOrder;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -21,9 +25,10 @@ public class SaleOrders {
 	private int orderNo;
 	@Column(name = "CUST_CODE")
 	private int custCode;
-	@OneToMany
-	private LineItems lineItems;
-	@OneToOne
+	@OneToMany(mappedBy="saleOrder")
+	private Set<LineItems> lineItems;
+	@OneToOne(optional = false, fetch = FetchType.EAGER)
+	@JoinColumn(name="CUST_CODE", insertable = false, updatable = false)
 	private Customer customer;
 	
 	public int getOrderNo() {
@@ -38,10 +43,10 @@ public class SaleOrders {
 	public void setCustCode(int custCode) {
 		this.custCode = custCode;
 	}
-	public LineItems getLineItems() {
+	public Set<LineItems> getLineItems() {
 		return lineItems;
 	}
-	public void setLineItems(LineItems lineItems) {
+	public void setLineItems(Set<LineItems> lineItems) {
 		this.lineItems = lineItems;
 	}
 	public Customer getCustomer() {
