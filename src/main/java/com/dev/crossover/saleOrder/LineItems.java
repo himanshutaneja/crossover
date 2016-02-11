@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.dev.crossover.product.Product;
 
 @Entity
 @Table(name = "LINE_ITEMS")
@@ -21,6 +25,8 @@ public class LineItems {
 	private String listOrderNo;
 	@Column(name = "LI_PRODUCT_ID")
 	private String listProductId;
+	@ManyToOne
+	private Product product;
 	
 	public int getListItemCode() {
 		return listItemCode;
@@ -45,6 +51,17 @@ public class LineItems {
 	}
 	public void setListProductId(String listProductId) {
 		this.listProductId = listProductId;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	@Override
+	public String toString() {
+		return "LineItems [listItemCode=" + listItemCode + ", listItemQty=" + listItemQty + ", listOrderNo="
+				+ listOrderNo + ", listProductId=" + listProductId + ", product=" + product + "]";
 	}
 	
 }
