@@ -21,4 +21,14 @@ public class CustomerServiceImpl implements CustomerService {
 		repository.saveAndFlush(customer);
 	}
 
+	@Override
+	public Customer get(int code) {
+		return repository.findOne(code);
+	}
+
+	@Override
+	public void delete(int code) {
+		repository.delete(code);
+	}
+
 }

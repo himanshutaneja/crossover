@@ -10,7 +10,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductRepository repository;
-	
+
 	@Override
 	public List<Product> getAll() {
 		return repository.findAll();
@@ -19,6 +19,16 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product save(Product product) {
 		return repository.saveAndFlush(product);
+	}
+
+	@Override
+	public Product get(int code) {
+		return repository.findOne(code);
+	}
+
+	@Override
+	public void delete(int code) {
+		repository.delete(code);
 	}
 
 }
