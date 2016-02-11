@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.dev.crossover.product.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "LINE_ITEMS")
@@ -26,6 +27,7 @@ public class LineItems {
 	@Column(name = "LI_PRODUCT_ID")
 	private String listProductId;
 	@ManyToOne
+	@JoinColumn(name="LI_PRODUCT_ID", insertable = false, updatable = false)
 	private Product product;
 	@ManyToOne
 	@JoinColumn(name="LI_ORDER_NO", insertable = false, updatable = false)
@@ -71,6 +73,7 @@ public class LineItems {
 		this.product = product;
 	}
 
+	@JsonIgnore
 	public SaleOrders getSaleOrder() {
 		return saleOrder;
 	}
