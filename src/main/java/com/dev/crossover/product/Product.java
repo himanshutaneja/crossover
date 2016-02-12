@@ -12,21 +12,20 @@ import javax.persistence.Table;
 public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "P_CODE")
-	private int code;
+	private String code;
 	@Column(name = "P_DESCRIPTION")
 	private String description;
 	@Column(name = "P_PRICE")
-	private int price;
+	private String price;
 	@Column(name = "P_QUANTITY")
-	private int quantity;
+	private String quantity;
 
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 
@@ -38,19 +37,19 @@ public class Product {
 		this.description = description;
 	}
 
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
-	public int getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 

@@ -13,8 +13,7 @@ public class Customer {
 
 	@Id
 	@Column(name = "C_CODE")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int code;
+	private String code;
 	@Column(name = "C_NAME")
 	private String name;
 	@Column(name = "C_ADDRESS")
@@ -24,15 +23,15 @@ public class Customer {
 	@Column(name = "C_PHONE2")
 	private String phone2;
 	@Column(name = "C_CREDITLIMIT")
-	private int creditLimit;
+	private String creditLimit;
 	@Column(name = "C_CURRENTLIMIT")
-	private int currentLimit;
+	private String currentLimit;
 
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 
@@ -68,19 +67,19 @@ public class Customer {
 		this.phone2 = phone2;
 	}
 
-	public int getCreditLimit() {
+	public String getCreditLimit() {
 		return creditLimit;
 	}
 
-	public void setCreditLimit(int creditLimit) {
+	public void setCreditLimit(String creditLimit) {
 		this.creditLimit = creditLimit;
 	}
 
-	public int getCurrentLimit() {
+	public String getCurrentLimit() {
 		return currentLimit;
 	}
 
-	public void setCurrentLimit(int currentLimit) {
+	public void setCurrentLimit(String currentLimit) {
 		this.currentLimit = currentLimit;
 	}
 

@@ -21,26 +21,25 @@ public class SaleOrders {
 
 	@Id
 	@Column(name = "LI_ORDER_NO")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int orderNo;
+	private String orderNo;
 	@Column(name = "CUST_CODE")
-	private int custCode;
+	private String custCode;
 	@OneToMany(mappedBy="saleOrder")
 	private Set<LineItems> lineItems;
 	@OneToOne(optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name="CUST_CODE", insertable = false, updatable = false)
 	private Customer customer;
 	
-	public int getOrderNo() {
+	public String getOrderNo() {
 		return orderNo;
 	}
-	public void setOrderNo(int orderNo) {
+	public void setOrderNo(String orderNo) {
 		this.orderNo = orderNo;
 	}
-	public int getCustCode() {
+	public String getCustCode() {
 		return custCode;
 	}
-	public void setCustCode(int custCode) {
+	public void setCustCode(String custCode) {
 		this.custCode = custCode;
 	}
 	public Set<LineItems> getLineItems() {

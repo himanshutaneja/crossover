@@ -18,10 +18,9 @@ public class LineItems {
 
 	@Id
 	@Column(name = "LI_CODE")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int listItemCode;
+	private String listItemCode;
 	@Column(name = "LI_QUANTITY")
-	private int listItemQty;
+	private String listItemQty;
 	@Column(name = "LI_ORDER_NO")
 	private String listOrderNo;
 	@Column(name = "LI_PRODUCT_ID")
@@ -33,21 +32,6 @@ public class LineItems {
 	@JoinColumn(name="LI_ORDER_NO", insertable = false, updatable = false)
 	private SaleOrders saleOrder;
 
-	public int getListItemCode() {
-		return listItemCode;
-	}
-
-	public void setListItemCode(int listItemCode) {
-		this.listItemCode = listItemCode;
-	}
-
-	public int getListItemQty() {
-		return listItemQty;
-	}
-
-	public void setListItemQty(int listItemQty) {
-		this.listItemQty = listItemQty;
-	}
 
 	public String getListOrderNo() {
 		return listOrderNo;
@@ -80,6 +64,22 @@ public class LineItems {
 
 	public void setSaleOrder(SaleOrders saleOrder) {
 		this.saleOrder = saleOrder;
+	}
+
+	public String getListItemCode() {
+		return listItemCode;
+	}
+
+	public void setListItemCode(String listItemCode) {
+		this.listItemCode = listItemCode;
+	}
+
+	public String getListItemQty() {
+		return listItemQty;
+	}
+
+	public void setListItemQty(String listItemQty) {
+		this.listItemQty = listItemQty;
 	}
 
 	@Override
