@@ -17,8 +17,8 @@ public class SaleOrderServiceImpl implements SaleOrderService {
 	}
 
 	@Override
-	public SaleOrders get(int code) {
-		return repository.findOne(code);
+	public SaleOrders get(String code) {
+		return repository.findOne(Integer.parseInt(code));
 	}
 
 	@Override
@@ -27,8 +27,8 @@ public class SaleOrderServiceImpl implements SaleOrderService {
 	}
 
 	@Override
-	public void delete(int code) {
-		repository.delete(code);
+	public void delete(String code) {
+		repository.delete(Integer.parseInt(code));
 	}
 
 }

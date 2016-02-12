@@ -8,8 +8,8 @@ public interface ProductService {
 
 	Product save(Product product);
 
-	Product get(int code);
+	Product get(String code);
 
-	void delete(int code);
+	void delete(String code);
 
 }

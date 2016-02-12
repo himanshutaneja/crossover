@@ -23,7 +23,7 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/customers/{code}", method = RequestMethod.GET)
-	public Customer get(@PathVariable int code) {
+	public Customer get(@PathVariable String code) {
 		return customerService.get(code);
 	}
 
@@ -35,7 +35,7 @@ public class CustomerController {
 
 	@RequestMapping(value = "/customers/{code}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.OK)
-	public void delete(@PathVariable int code) {
+	public void delete(@PathVariable String code) {
 		customerService.delete(code);
 	}
 

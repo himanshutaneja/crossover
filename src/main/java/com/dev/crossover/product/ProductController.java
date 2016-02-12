@@ -23,7 +23,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/products/{code}", method = RequestMethod.GET)
-	public Product get(@PathVariable int code) {
+	public Product get(@PathVariable String code) {
 		return productService.get(code);
 	}
 
@@ -35,7 +35,7 @@ public class ProductController {
 
 	@RequestMapping(value = "/products/{code}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.OK)
-	public void delete(@PathVariable int code) {
+	public void delete(@PathVariable String code) {
 		productService.delete(code);
 	}
 }

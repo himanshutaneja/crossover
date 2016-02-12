@@ -6,10 +6,10 @@ public interface CustomerService {
 
 	List<Customer> getAll();
 
-	Customer get(int code);
+	Customer get(String code);
 
 	void save(Customer customer);
 
-	void delete(int code);
+	void delete(String code);
 
 }

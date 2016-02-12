@@ -22,13 +22,13 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer get(int code) {
-		return repository.findOne(code);
+	public Customer get(String code) {
+		return repository.findOne(Integer.parseInt(code));
 	}
 
 	@Override
-	public void delete(int code) {
-		repository.delete(code);
+	public void delete(String code) {
+		repository.delete(Integer.parseInt(code));
 	}
 
 }

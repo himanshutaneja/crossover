@@ -6,10 +6,10 @@ public interface SaleOrderService {
 
 	List<SaleOrders> getAll();
 
-	SaleOrders get(int code);
+	SaleOrders get(String code);
 
 	void save(SaleOrders saleOrder);
 
-	void delete(int code);
+	void delete(String code);
 
 }
