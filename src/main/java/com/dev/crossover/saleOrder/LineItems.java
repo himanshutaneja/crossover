@@ -2,34 +2,49 @@ package com.dev.crossover.saleOrder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.dev.crossover.product.Product;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "LINE_ITEMS")
-public class LineItems {
+public class LineItems{
 
 	@Id
 	@Column(name = "LI_CODE")
-	private String listItemCode;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int listItemCode;
 	@Column(name = "LI_QUANTITY")
 	private String listItemQty;
 	@Column(name = "LI_ORDER_NO")
 	private String listOrderNo;
 	@Column(name = "LI_PRODUCT_ID")
 	private String listProductId;
-	@ManyToOne
+	@OneToOne(optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name="LI_PRODUCT_ID", insertable = false, updatable = false)
 	private Product product;
-	@ManyToOne
-	@JoinColumn(name="LI_ORDER_NO", insertable = false, updatable = false)
-	private SaleOrders saleOrder;
+	//@ManyToOne
+	//@JoinColumn(name="LI_ORDER_NO", insertable = false, updatable = false)
+	//private SaleOrders saleOrder;
 
+
+	public int getListItemCode() {
+		return listItemCode;
+	}
+
+	public String getListItemQty() {
+		return listItemQty;
+	}
+
+	public void setListItemQty(String listItemQty) {
+		this.listItemQty = listItemQty;
+	}
 
 	public String getListOrderNo() {
 		return listOrderNo;
@@ -55,37 +70,9 @@ public class LineItems {
 		this.product = product;
 	}
 
-	@JsonIgnore
-	public SaleOrders getSaleOrder() {
-		return saleOrder;
-	}
-
-	public void setSaleOrder(SaleOrders saleOrder) {
-		this.saleOrder = saleOrder;
-	}
-
-	public String getListItemCode() {
-		return listItemCode;
-	}
-
-	public void setListItemCode(String listItemCode) {
-		this.listItemCode = listItemCode;
-	}
-
-	public String getListItemQty() {
-		return listItemQty;
-	}
-
-	public void setListItemQty(String listItemQty) {
-		this.listItemQty = listItemQty;
-	}
-
 	@Override
 	public String toString() {
-		return "LineItems [listItemCode=" + listItemCode + ", listItemQty="
-				+ listItemQty + ", listOrderNo=" + listOrderNo
-				+ ", listProductId=" + listProductId + ", product=" + product
-				+ ", saleOrder=" + saleOrder + "]";
+		return "LineItems [listItemCode=" + listItemCode + ", listItemQty=" + listItemQty + ", listOrderNo="
+				+ listOrderNo + ", listProductId=" + listProductId + ", product=" + product + "]";
 	}
-
 }

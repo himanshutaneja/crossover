@@ -15,19 +15,20 @@ import com.dev.crossover.customer.Customer;
 
 @Entity
 @Table(name = "SALE_ORDERS")
-public class SaleOrders {
+public class SaleOrders{
 
 	@Id
 	@Column(name = "LI_ORDER_NO")
 	private String orderNo;
 	@Column(name = "CUST_CODE")
 	private String custCode;
-	@OneToMany(mappedBy="saleOrder")
+	//@OneToMany(mappedBy="saleOrder")
+	@OneToMany
+	@JoinColumn(name="LI_ORDER_NO", insertable = false, updatable = false)
 	private Set<LineItems> lineItems;
 	@OneToOne(optional = false, fetch = FetchType.EAGER)
 	@JoinColumn(name="CUST_CODE", insertable = false, updatable = false)
 	private Customer customer;
-	
 	public String getOrderNo() {
 		return orderNo;
 	}
