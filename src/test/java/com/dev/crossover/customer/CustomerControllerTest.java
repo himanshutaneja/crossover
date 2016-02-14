@@ -1,4 +1,4 @@
-package com.dev.crossover.product;
+package com.dev.crossover.customer;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -18,45 +18,38 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.dev.crossover.Application;
-import com.dev.crossover.saleOrder.SaleOrderRepository;
 
 @ContextConfiguration(classes = { Application.class })
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@TestPropertySource(locations="classpath:application.properties")
-public class ProductControllerTest {
-	
+@TestPropertySource(locations = "classpath:application.properties")
+public class CustomerControllerTest {
+
 	@Autowired
-	ProductRepository productRepository;
-	
-	@Autowired
-	SaleOrderRepository saleOrderRepository;
-	
-	Product p;
+	CustomerRepository customerRepository;
+
+	Customer c;
 
 	protected MockMvc mockMvc;
-    @Autowired
-    protected WebApplicationContext context;
+	@Autowired
+	protected WebApplicationContext context;
 
-    @Before
-    public void setup() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
-        saleOrderRepository.deleteAll();
-        productRepository.deleteAll();
-        p = new Product();
-        p.setCode("12");
-        p.setDescription("dd");
-        p.setPrice("34");
-        p.setQuantity("100");
-        productRepository.save(p);
-    }
-    
-    @Test
-    public void shouldGetProduct() throws Exception {
-        mockMvc.perform(get("/products")).andExpect(status().isOk())
-        .andExpect(
-				jsonPath("$[0].code", equalTo("12")))
-		.andExpect(
-				jsonPath("$[0].description", equalTo("dd")));
-    }
+	@Before
+	public void setup() {
+		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+		customerRepository.deleteAll();
+		c = new Customer();
+		c.setCode("15");
+		c.setName("name");
+		c.setPhone1("+91100");
+		c.setAddress("India");
+		customerRepository.save(c);
+	}
+
+	@Test
+	public void shouldGetCustomer() throws Exception {
+		mockMvc.perform(get("/customers")).andExpect(status().isOk()).andExpect(jsonPath("$[0].code", equalTo("15")))
+				.andExpect(jsonPath("$[0].name", equalTo("name")));
+	}
+
 }
