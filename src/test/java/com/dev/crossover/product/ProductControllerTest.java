@@ -46,7 +46,7 @@ public class ProductControllerTest {
     }
     
     @Test
-    public void shouldGetHTTPErrorBadRequestForMissingParameters() throws Exception {
+    public void shouldGetProduct() throws Exception {
         mockMvc.perform(get("/products")).andExpect(status().isOk())
         .andExpect(
 				jsonPath("$[0].code", equalTo("11")))
