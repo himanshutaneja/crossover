@@ -14,18 +14,6 @@ public class SaleOrderServiceImpl implements SaleOrderService {
 	@Override
 	public List<SaleOrders> getAll() {
 		return repository.findAll();
-//		String writeValueAsString = null;
-//		ObjectMapper mapper = new ObjectMapper();
-//		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-//		try {
-//
-//			writeValueAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(repository.findAll());
-//			System.out.println(writeValueAsString);
-//		} catch (JsonProcessingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return writeValueAsString;
 	}
 
 	@Override
