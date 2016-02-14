@@ -22,6 +22,10 @@ import com.dev.crossover.Application;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 public class ProductControllerTest {
+	
+	@Autowired
+	ProductRepository productRepository;
+	Product p;
 
 	protected MockMvc mockMvc;
     @Autowired
@@ -30,14 +34,20 @@ public class ProductControllerTest {
     @Before
     public void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+        productRepository.deleteAll();
+        p.setCode("11");
+        p.setDescription("dd");
+        p.setPrice("34");
+        p.setQuantity("100");
+        productRepository.save(p);
     }
     
     @Test
     public void shouldGetHTTPErrorBadRequestForMissingParameters() throws Exception {
         mockMvc.perform(get("/products")).andExpect(status().isOk())
         .andExpect(
-				jsonPath("$[0].code", equalTo("")))
+				jsonPath("$[0].code", equalTo("11")))
 		.andExpect(
-				jsonPath("$[0].description", equalTo("")));
+				jsonPath("$[0].description", equalTo("dd")));
     }
 }
